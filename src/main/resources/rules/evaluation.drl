@@ -1,0 +1,63 @@
+package com.example.rules
+
+import com.example.evaluator.ScoreResult;
+import com.example.evaluator.FunctionalCorrectness;
+import com.example.evaluator.LinterValidation;
+import com.example.evaluator.GenAiEvaluation;
+
+global java.util.logging.Logger logger;
+
+rule "Compute static (linter) partial score"
+when
+    $lv : LinterValidation()
+    $sr : ScoreResult()
+then
+    double base = 20.0;
+    int files = Math.max(1, $lv.getTotalFiles());
+    double fileErrorPenalty = (double)$lv.getFilesWithErrors() / files;
+    double warningPenalty = Math.min(1.0, $lv.getTotalPylintWarnings() / 100.0);
+    double score = base * (1.0 - 0.6 * fileErrorPenalty - 0.4 * warningPenalty);
+    if (score < 0) score = 0;
+    $sr.setStaticScore(Math.round(score*100.0)/100.0);
+    update($sr);
+end
+
+rule "Compute functional partial score"
+when
+    $fc : FunctionalCorrectness()
+    $sr : ScoreResult()
+then
+    double base = 30.0;
+    int totalPairs = Math.max(1, $fc.getTotalPairs());
+    double groundedRatio = (double) $fc.getGroundedReplies() / totalPairs;
+    double citationRatio = 0.8;
+    if ($fc.getTotalCitations() > 0) {
+        citationRatio = (double)$fc.getCorrectCitations() / $fc.getTotalCitations();
+    }
+    double hallucPenalty = Math.min(1.0, $fc.getHallucinatedReplies() / (double) totalPairs);
+    double score = base * (0.7 * groundedRatio + 0.3 * citationRatio) * (1.0 - 0.8 * hallucPenalty);
+    if (score < 0) score = 0;
+    $sr.setFunctionalScore(Math.round(score*100.0)/100.0);
+    update($sr);
+end
+
+rule "Compute usecase (genai) partial score"
+when
+    $ge : GenAiEvaluation()
+    $sr : ScoreResult()
+then
+    double avg = $ge.averageQualityScore();
+    double score = 50.0 * avg;
+    $sr.setUsecaseScore(Math.round(score*100.0)/100.0);
+    update($sr);
+end
+
+rule "Compute final score"
+when
+    $sr : ScoreResult()
+then
+    double total = $sr.getStaticScore() + $sr.getFunctionalScore() + $sr.getUsecaseScore();
+    if (total > 100.0) total = 100.0;
+    $sr.setFinalScore(Math.round(total*100.0)/100.0);
+    update($sr);
+end
