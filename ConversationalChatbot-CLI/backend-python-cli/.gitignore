@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+venv/
+env/
+ENV/
+
+# Output files
+output/
+*.json
+
+# Logs
+*.log
