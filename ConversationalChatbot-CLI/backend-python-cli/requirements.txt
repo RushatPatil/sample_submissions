@@ -1,0 +1,9 @@
+# Python CLI Chatbot Requirements
+# Compatible with Python 3.11+
+
+# No external dependencies required for basic functionality
+# The CLI uses only Python standard library
+
+# Optional: For enhanced features (uncomment if needed)
+# python-dotenv==1.0.0  # For environment variable management
+# colorama==0.4.6       # For colored terminal output

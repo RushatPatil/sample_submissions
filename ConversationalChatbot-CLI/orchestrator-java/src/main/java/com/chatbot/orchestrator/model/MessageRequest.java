@@ -1,0 +1,12 @@
+package com.chatbot.orchestrator.model;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class MessageRequest {
+    private String message;
+}
