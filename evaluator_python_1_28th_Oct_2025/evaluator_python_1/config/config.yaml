@@ -1,0 +1,56 @@
+evaluation:
+  max_concurrent_evaluations: 5
+  timeout_per_evaluation: 300  # seconds
+  retry_attempts: 3
+
+languages:
+  java:
+    file_extensions: [".java"]
+    evaluation_criteria:
+      - code_quality
+      - design_patterns
+      - error_handling
+      - performance
+      - security
+
+  javascript:
+    file_extensions: [".js", ".jsx", ".ts", ".tsx"]
+    evaluation_criteria:
+      - code_quality
+      - modern_practices
+      - error_handling
+      - performance
+      - security
+
+  python:
+    file_extensions: [".py"]
+    evaluation_criteria:
+      - code_quality
+      - pythonic_practices
+      - error_handling
+      - performance
+      - security
+
+  csharp:
+    file_extensions: [".cs"]
+    evaluation_criteria:
+      - code_quality
+      - design_patterns
+      - error_handling
+      - performance
+      - security
+
+scoring:
+  total_points: 100
+  weights:
+    code_quality: 0.25
+    design_patterns: 0.20
+    error_handling: 0.20
+    performance: 0.20
+    security: 0.15
+
+logging:
+  level: INFO
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  log_to_file: true
+  log_directory: "./logs"

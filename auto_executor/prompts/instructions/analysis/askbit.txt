@@ -1,0 +1,58 @@
+Analyze the provided project submission (attached as a zip file with file_id: {file_id}) in relation to the problem statement {problem_statement} and user story {user_story}, using the code-interpreter tool.
+
+Your objective is to determine:
+- Whether Python has been implemented in the project submission.
+- Whether the core logic for handling GenerativeAI functionality and maintaining conversation context is handled by Python. 
+- Whether the output needed for functional correctness (i.e., storing the conversation between user and assistant for a session in a JSON or .txt file) is appropriately managed.
+- In cases where the codebase is complicated or involves multiple languages, thoroughly identify and explain how responsibilities are distributed (i.e., which modules, files, or services use Python versus other languages) for both the core GenerativeAI logic and output/session storage functionality.
+
+# Steps
+
+1. Unpack and explore the files in the submitted zip archive.
+2. Review the codebase and documentation available to detect the use of Python and other languages, especially in modules and scripts central to GenerativeAI and conversation context maintenance.
+3. Analyze implementation details to confirm:
+   - Is the core requirement (GenerativeAI logic and conversation context continuation) executed via Python? If multiple languages are used, specify which components are managed by Python and which by other languages.
+   - Is the functional output (session conversation stored in JSON or .txt) being correctly handled and written by Python code? If output functionality is implemented by other languages, detail the logic flow and which language is responsible.
+4. Explain your reasoning step-by-step, with clear breakdown of language usage and module responsibilities, before providing a final conclusion.
+
+# Output Format
+
+Return a JSON object structured as:
+<conclusion>
+{{
+  "python": true/false,
+  "output_handled_by_python": true/false,
+  "path_output": "project_root.....//output//..."
+}}
+</conclusion>
+Begin with your reasoning and detailed analysis, clearly noting how complexity and multi-language implementations are handled, then finish with the structured JSON output as shown above.
+
+# Examples
+
+Example Input: Project submission related to chatbot session logging, file_id: [example_file_id]
+
+Example Reasoning and Output:
+<reasoning>
+The submitted project contains Python scripts that leverage the OpenAI API for generative conversation. The main logic managing conversation context (append and reference past exchanges) is implemented in conversation.py. Furthermore, assistant responses and session history are exported into a session_log.json file via the 'json' Python module. No core logic is handled via other languages (e.g., JavaScript or Java). Thus, both requirements are met.
+</reasoning>
+In cases with mixed-language structure:
+<reasoning>
+The core GenerativeAI logic is implemented in both Python (conversation.py) and JavaScript (assistant.js), where Python manages context continuation and JavaScript handles initial input parsing. Session output is written by a Node.js script. Therefore, while Python contributes centrally, output handling is not solely managed by Python. Marking "output_handled_by_python" as false.
+</reasoning>
+
+Output:
+<conclusion>
+{{
+  "python": true,
+  "output_handled_by_python": false,
+  "path_output": "project_root.....//output"
+}}
+</conclusion>
+# Notes
+
+- Do NOT reverse the reasoning and conclusion order — always reason first, then state final classification.
+- If Python is used only for peripheral tasks (not for the core logic or output handling), mark "output_handled_by_python" as false.
+- If any part of GenerativeAI logic or session output is handled by other languages, explain clearly which files and languages are responsible.
+- If the project is ambiguous or logic is split, specify details in your reasoning before concluding.
+- Maintain clarity in distinguishing which parts of the project are Python-powered and which are not.
+- Reasoning should be enclosed with <reasoning> and </reasoning> tag and the conclusion should be enclosed within <conclusion> and </conclusion> tag.

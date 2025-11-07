@@ -1,0 +1,204 @@
+{
+  "session_id": "20251105_013305",
+  "backend_dir": "C:\\Users\\rushatp\\nodejs\\auto_executor\\sandbox\\askbit\\ConversationalChatbot\\ConversationalChatbot\\backend-python",
+  "output_file": "C:\\Users\\rushatp\\nodejs\\auto_executor\\sandbox\\askbit\\ConversationalChatbot\\ConversationalChatbot\\backend-python\\output\\session_20251105_013305.json",
+  "health_before": {
+    "service": "Python Flask Backend",
+    "session_id": "20251105_013305",
+    "status": "healthy",
+    "total_conversations": 0
+  },
+  "health_after": {
+    "service": "Python Flask Backend",
+    "session_id": "20251105_013305",
+    "status": "healthy",
+    "total_conversations": 20
+  },
+  "batched_runs": [
+    {
+      "index": 1,
+      "user": "1. What is the effective date of the Pro Referral Network Program?",
+      "assistant": "I listened to you: 1. What is the effective date of the Pro Referral Network Program?"
+    },
+    {
+      "index": 2,
+      "user": "2. Am I eligible for the referral reward if I'm an AVP?",
+      "assistant": "I listened to you: 2. Am I eligible for the referral reward if I'm an AVP?"
+    },
+    {
+      "index": 3,
+      "user": "3. How much reward will I get for referring a Python developer with 5 years of experience?",
+      "assistant": "I listened to you: 3. How much reward will I get for referring a Python developer with 5 years of experience?"
+    },
+    {
+      "index": 4,
+      "user": "4. Can I refer my friend who left Bitwise 8 months ago?",
+      "assistant": "I listened to you: 4. Can I refer my friend who left Bitwise 8 months ago?"
+    },
+    {
+      "index": 5,
+      "user": "5. How do I submit a referral?",
+      "assistant": "I listened to you: 5. How do I submit a referral?"
+    },
+    {
+      "index": 6,
+      "user": "6. When will I receive the referral bonus?",
+      "assistant": "I listened to you: 6. When will I receive the referral bonus?"
+    },
+    {
+      "index": 7,
+      "user": "7. Can I email the resume to HR instead of using the portal?",
+      "assistant": "I listened to you: 7. Can I email the resume to HR instead of using the portal?"
+    },
+    {
+      "index": 8,
+      "user": "8. What happens if someone else already referred the same candidate?",
+      "assistant": "I listened to you: 8. What happens if someone else already referred the same candidate?"
+    },
+    {
+      "index": 9,
+      "user": "9. Is DevOps considered a niche skill?",
+      "assistant": "I listened to you: 9. Is DevOps considered a niche skill?"
+    },
+    {
+      "index": 10,
+      "user": "10. How much would I get for referring a React JS developer with 10 years experience?",
+      "assistant": "I listened to you: 10. How much would I get for referring a React JS developer with 10 years experience?"
+    },
+    {
+      "index": 11,
+      "user": "11. Can I track my referral status in real-time?",
+      "assistant": "I listened to you: 11. Can I track my referral status in real-time?"
+    },
+    {
+      "index": 12,
+      "user": "12. Can I refer someone who applied to Bitwise 4 months ago?",
+      "assistant": "I listened to you: 12. Can I refer someone who applied to Bitwise 4 months ago?"
+    },
+    {
+      "index": 13,
+      "user": "13. What if I resign before the referral bonus is paid?",
+      "assistant": "I listened to you: 13. What if I resign before the referral bonus is paid?"
+    },
+    {
+      "index": 14,
+      "user": "14. Is there a limit on how many people I can refer?",
+      "assistant": "I listened to you: 14. Is there a limit on how many people I can refer?"
+    },
+    {
+      "index": 15,
+      "user": "15. reward for super niche skill",
+      "assistant": "I listened to you: 15. reward for super niche skill"
+    },
+    {
+      "index": 16,
+      "user": "16. What are the Super Niche skills?",
+      "assistant": "I listened to you: 16. What are the Super Niche skills?"
+    },
+    {
+      "index": 17,
+      "user": "17. Who should I contact if I have questions about the referral program?",
+      "assistant": "I listened to you: 17. Who should I contact if I have questions about the referral program?"
+    },
+    {
+      "index": 18,
+      "user": "18. Can third-party contractors get the referral bonus?",
+      "assistant": "I listened to you: 18. Can third-party contractors get the referral bonus?"
+    },
+    {
+      "index": 19,
+      "user": "19. What's the salary range for a Python developer at Bitwise?",
+      "assistant": "I listened to you: 19. What's the salary range for a Python developer at Bitwise?"
+    },
+    {
+      "index": 20,
+      "user": "20. How long does the referral ownership last?",
+      "assistant": "I listened to you: 20. How long does the referral ownership last?"
+    }
+  ],
+  "session_conversation": {
+    "session_id": "20251105_013305",
+    "conversations": [
+      {
+        "user": "1. What is the effective date of the Pro Referral Network Program?",
+        "assistant": "I listened to you: 1. What is the effective date of the Pro Referral Network Program?"
+      },
+      {
+        "user": "2. Am I eligible for the referral reward if I'm an AVP?",
+        "assistant": "I listened to you: 2. Am I eligible for the referral reward if I'm an AVP?"
+      },
+      {
+        "user": "3. How much reward will I get for referring a Python developer with 5 years of experience?",
+        "assistant": "I listened to you: 3. How much reward will I get for referring a Python developer with 5 years of experience?"
+      },
+      {
+        "user": "4. Can I refer my friend who left Bitwise 8 months ago?",
+        "assistant": "I listened to you: 4. Can I refer my friend who left Bitwise 8 months ago?"
+      },
+      {
+        "user": "5. How do I submit a referral?",
+        "assistant": "I listened to you: 5. How do I submit a referral?"
+      },
+      {
+        "user": "6. When will I receive the referral bonus?",
+        "assistant": "I listened to you: 6. When will I receive the referral bonus?"
+      },
+      {
+        "user": "7. Can I email the resume to HR instead of using the portal?",
+        "assistant": "I listened to you: 7. Can I email the resume to HR instead of using the portal?"
+      },
+      {
+        "user": "8. What happens if someone else already referred the same candidate?",
+        "assistant": "I listened to you: 8. What happens if someone else already referred the same candidate?"
+      },
+      {
+        "user": "9. Is DevOps considered a niche skill?",
+        "assistant": "I listened to you: 9. Is DevOps considered a niche skill?"
+      },
+      {
+        "user": "10. How much would I get for referring a React JS developer with 10 years experience?",
+        "assistant": "I listened to you: 10. How much would I get for referring a React JS developer with 10 years experience?"
+      },
+      {
+        "user": "11. Can I track my referral status in real-time?",
+        "assistant": "I listened to you: 11. Can I track my referral status in real-time?"
+      },
+      {
+        "user": "12. Can I refer someone who applied to Bitwise 4 months ago?",
+        "assistant": "I listened to you: 12. Can I refer someone who applied to Bitwise 4 months ago?"
+      },
+      {
+        "user": "13. What if I resign before the referral bonus is paid?",
+        "assistant": "I listened to you: 13. What if I resign before the referral bonus is paid?"
+      },
+      {
+        "user": "14. Is there a limit on how many people I can refer?",
+        "assistant": "I listened to you: 14. Is there a limit on how many people I can refer?"
+      },
+      {
+        "user": "15. reward for super niche skill",
+        "assistant": "I listened to you: 15. reward for super niche skill"
+      },
+      {
+        "user": "16. What are the Super Niche skills?",
+        "assistant": "I listened to you: 16. What are the Super Niche skills?"
+      },
+      {
+        "user": "17. Who should I contact if I have questions about the referral program?",
+        "assistant": "I listened to you: 17. Who should I contact if I have questions about the referral program?"
+      },
+      {
+        "user": "18. Can third-party contractors get the referral bonus?",
+        "assistant": "I listened to you: 18. Can third-party contractors get the referral bonus?"
+      },
+      {
+        "user": "19. What's the salary range for a Python developer at Bitwise?",
+        "assistant": "I listened to you: 19. What's the salary range for a Python developer at Bitwise?"
+      },
+      {
+        "user": "20. How long does the referral ownership last?",
+        "assistant": "I listened to you: 20. How long does the referral ownership last?"
+      }
+    ]
+  }
+}
