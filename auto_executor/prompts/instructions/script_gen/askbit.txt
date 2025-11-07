@@ -1,0 +1,92 @@
+Analyze the contents of a provided GenAI project which is already extracted at the path (file_id : {file_id}), and generate a fully-automated Python script that sets up, runs, and extracts results from the project with no manual intervention.
+
+**Do not perform any extraction of files. Assume the project directory is fully available at the specified path and all file locations (including output) are accessible for reading and execution.** The script should only read the output file as indicated and not modify any project files.
+
+Carefully review the project structure and codebase (including requirements, entry points, and output formats). Construct a Python script that executes the following workflow:
+
+- Creates an isolated Python virtual environment in a project-specific directory.
+- Installs all required packages, referencing any dependencies/requirements files present.
+- Identifies the appropriate method to run the project (e.g. Flask server, CLI tool, etc.).
+- Executes the project according to its launch method. If it is a Flask application, launch the endpoint; if CLI, invoke the correct commands.
+- Accepts batched input values for n runs as described in the submission, all provided in the `{multiple_run_data}` variable, and runs the project for each input in a loop within a single session, collecting session output accordingly.
+- For each run, reads and extracts the session conversation data from the designated json/txt output file, located in `{output_file_path}` within the existing project directory submitted by the user and not the project that is running the script you generate
+
+# Steps
+
+1. Inspect the project files present at the specified directory path:
+    - Detect all requirements and dependencies.
+    - Locate the main entry point (e.g. app.py, cli.py, main.py).
+    - Identify how to launch or interact with the project (Flask route, CLI command, etc.).
+    - Determine the input mechanism (file, stdin, API, etc.) and the output file format/location.
+2. Write a Python script which:
+    - Creates and activates a virtual environment in a subfolder (e.g., `.venv`).
+    - Installs all required packages (`pip install -r requirements.txt`, or as inferred).
+    - Runs the project by launching its entry point (e.g., starting Flask, running CLI).
+    - Iterates over all input data items in `{multiple_run_data}` and feeds each to the project appropriately for each run in the session.
+    - After completion, loads and parses the output file containing the session conversation. The output file will always be located at `{output_file_path}`.
+    - Extracts and displays (or saves) the complete conversation results for each run.
+
+# Output Format
+
+Output a complete Python script (as markdown, do not use code blocks unless specifically requested) that performs the above steps. The script should be ready to use in a single command, without manual setup beyond pointing to the existing extracted project directory.
+
+- The script should be output as a single, continuous code listing.
+- Variables, file paths, launch commands, and batched input data should use placeholders (e.g., `[project_entry.py]`, `[input_file.json]`, `{output_file_path}`, `{multiple_run_data}`).
+- Include comments for main steps and where project-specific logic is applied.
+- For cases where the launch method is uncertain, note points for adaptation.
+
+# Examples
+
+Example 1:
+
+**Input**  
+A project already extracted and present in:
+- `project_dir/app.py` (Flask server)
+- `project_dir/requirements.txt`
+- `project_dir/input.json`
+- `{output_file_path}` (e.g., `project_dir/output/session_output.json`)
+- `{multiple_run_data}` (e.g., a list of input dicts for n runs)
+
+**Script Output**  
+(Real script should be longer and include full paths and proper subprocess logic.)
+<script>
+import os
+import subprocess
+import sys
+import json
+
+# Step 1: Set up virtual environment (do not extract files)
+subprocess.run([sys.executable, '-m', 'venv', 'project_dir/.venv'])
+
+# Step 2: Install requirements
+subprocess.run(['project_dir/.venv/bin/pip', 'install', '-r', 'project_dir/requirements.txt'])
+
+# Step 3: Launch flask (adjust as needed)
+flask_proc = subprocess.Popen(['project_dir/.venv/bin/python', 'project_dir/app.py'])
+
+# Step 4: Iterate over multiple_run_data
+for run_data in {multiple_run_data}:
+    # Send run_data as input to app via HTTP or other means as required
+
+# Step 5: After run, extract output
+with open('{output_file_path}') as outp:
+    session_results = json.load(outp)
+    print('Session Conversation:', session_results)
+</script>
+# Notes
+
+- Do NOT extract or modify any project files. 
+- For ambiguous entrypoints or input mechanisms, leave TODO comments.
+- Always extract reasoning steps before conclusion data when extracting from output files.
+- Scripts must not require manual steps for setup.
+- Placeholders (like `[input.json]`, `[app.py]`, `{output_file_path}`, `{multiple_run_data}`) must be replaced for specific projects. 
+
+# Notes
+
+- Always handle variable input/output formats.
+- Include error handling for missing files, requirements, or entrypoints.
+- If the reasoning or extraction is performed after extraction, reverse the output order so that reasoning is shown first, then conclusion/result at the end.
+- Only the final Python script should be output; do not include additional commentary or markdown sections.
+- The output path containing the output will always be in `{output_file_path}`.
+- The batched input for n runs must be provided in `{multiple_run_data}` as per your submission.
+- The script should be present within tags <script> and </script>.
